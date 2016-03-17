@@ -1,0 +1,26 @@
+<md-dialog aria-label="Denuncia" flex="40">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2 class="md-padding">Denuncia: {{receta.nombrereceta}}</h2>
+    </div>
+	</md-toolbar>
+	<md-dialog-content>
+		<form name="myForm" flex="100">
+		<md-input-container class="md-block">
+			<label>Tipo Denuncia</label>
+			<md-select aria-label="TipoDenuncia" ng-model="tipoDen" name="myModel" required>
+				<md-option value="1">Es una receta duplicada</md-option>
+				<md-option value="2">La receta muestra contenido inapropiado.</md-option>
+				<md-option value="3">Otros</md-option>
+			</md-select>
+			<div class="errors" ng-messages="myForm.myModel.$error" ng-if="myForm.$dirty">
+				<div ng-message="required">Required</div>
+			</div>
+		</md-input-container>
+			<div layout="row">
+				<md-button ng-click="cancelarDen()" style="margin-right: 20px;">Cancelar</md-button>
+				<md-button ng-click="sendDenTrue()" ng-disabled="myForm.$invalid" class="md-primary" layout layout-align="center end">Enviar</md-button>
+			</div>
+		</form>
+    </md-dialog-content>
+</md-dialog>

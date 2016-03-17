@@ -1,0 +1,54 @@
+<md-dialog aria-label="Acceder" flex="70" >
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2 class="md-padding">Modificar receta</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon md-font-library="material-icons">clear</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <form name="recetaEditForm">
+      <div class="md-padding">
+        <div class="md-padding" layout="row" flex>
+          <md-input-container  flex>
+            <label>Nombre</label>
+            <textarea ng-model="receta.nombrereceta" columns="1" minlength="5" md-maxlength="50" required flex></textarea>
+          </md-input-container>
+        </div>
+        <div class="md-padding" layout="row" flex>
+          <md-input-container  flex>
+            <label>Descripción</label>
+            <textarea ng-model="receta.descripcion" columns="1" minlength="5" md-maxlength="500" required flex></textarea>
+          </md-input-container>
+        </div>
+        <div class="md-padding" layout="row" flex>
+          <md-input-container  flex>
+            <label>Ingredientes</label>
+            <textarea ng-model="receta.ingredientes" columns="1" minlength="5" md-maxlength="500" required flex></textarea>
+          </md-input-container>
+        </div>
+        <div class="md-padding" layout="row" flex>
+          <md-input-container  flex>
+            <label>Procedimiento</label>
+            <textarea ng-model="receta.procedimiento" columns="1" minlength="5" md-maxlength="500" required flex></textarea>
+          </md-input-container>
+        </div>
+        <div class="md-padding" layout="row" flex>
+          <md-input-container  flex>
+            <label>Etiquetas</label>
+            <textarea ng-model="receta.etiquetas" columns="1" minlength="5" md-maxlength="500" required flex></textarea>
+          </md-input-container>
+        </div>
+      </div>
+      <div class="md-action md-padding" layout="row">
+        <span flex></span>
+        <md-button class="md-raised md-accent md-padding" ng-click="actualizar()">
+          <span class="md-padding">Modificar Receta</span>
+        </md-button>
+        <span flex></span>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>

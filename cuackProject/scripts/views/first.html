@@ -1,0 +1,50 @@
+<div layout="row"  layout-align="space-around center">
+	<div ><img src="./img/chefcito.bmp"></div>	
+	<div layout="column">
+		<br><div flex><h3>{{recetasTitle}}<h3></div><br><br>
+<!-- 		<table class="table table-striped" at-table at-list="list" at-config="config" at-paginated >
+		  <thead></thead>
+		  <tbody>
+			<tr>
+			    <td at-sortable at-title="Receta">
+					<a style="cursor: pointer;" ng-click="showRecetaView($event,item)" >{{item.nombrereceta}}</a>
+				</td>
+				<td at-sortable at-title="Usuario">
+					<code>{{item.nombreusuario}}</code>
+				</td>
+			  	<td at-sortable at-title="Ultima Modificación">
+					<code>{{item.fecha_modificacion}}</code>
+				</td>
+			  	<td at-sortable at-title="Puntuacion">
+				<strong ng-init="item.cal=item.calificacion_promedio == 6 ? 0 : item.calificacion_promedio">
+					<span style="color:green" ng-repeat="n in [] | range: item.cal">*<span>
+				</strong>
+				</td>
+			</tr>
+		  </tbody>
+		</table>
+		<at-pagination at-list="list" at-config="config"></at-pagination> -->
+		
+ 	<table class="table table-striped" at-table at-paginated at-list="list" at-config="config">
+		  <thead></thead>
+		  <tbody>
+			<tr>
+			  <td at-title="Receta" at-sortable at-attribute="nombrereceta" width="150" at-initial-sorting="asc"><a style="cursor: pointer;" ng-click="showRecetaView($event,item)" >{{item.nombrereceta}}</a></td>
+			  <td at-title="Usuario" at-sortable at-attribute="nombreusuario"  width="150">{{item.nombreusuario}}</td>
+			  <td at-title="Ultima Modificación" at-sortable at-attribute="fecha_modificacion">{{item.fecha_modificacion}}</td>
+			  <td at-title="Puntuación" at-sortable at-attribute="calificacion_promedio">				
+				<strong ng-init="item.cal=item.calificacion_promedio == 6 ? 0 : item.calificacion_promedio">
+					<span style="color:green" ng-repeat="n in [] | range: item.cal">*<span>
+				</strong>
+			</td>
+			</tr>
+		  </tbody>
+	</table>
+
+		<at-pagination at-list="list" at-config="config"></at-pagination>
+	</div> 
+
+
+	</div>
+
+</div>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="initial-scale=1" />
+  <title>Cuack</title>
+  <!-- CSS ANGULAR MATERIAL -->
+  <link href="./lib/css/angular-material.min.css" rel="stylesheet" />
+  <link href="./lib/css/material-icons.css" rel="stylesheet" />
+<!--   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  <style>
+	#goToFirst:hover{
+		text-decoration: none;
+		color:white;
+	}
+  </style>
+</head>
+
+<body ng-app="cuackApp" ng-cloak ng-controller="mainCtrl"> <!--  -->
+	<!-- MENU EN LA CABECERA -->
+  <header>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+			<md-fab-speed-dial ng-show="idusuario>0" md-direction="down" class="md-fling md-fab-top-left" style="position:absolute;left: 2px !important;top: 7px !important;"> 
+				<md-fab-trigger>
+					<md-button aria-label="Settings" class="md-icon-button">
+						<md-icon md-font-library="material-icons">menu</md-icon>
+					</md-button>
+				</md-fab-trigger>
+				<md-fab-actions>
+					<br>
+					<md-button class="md-raised md-accent" style="font-size: 1.8rem;width:100%" ng-click="showMisRecetas($event)">
+						<md-icon md-font-library="material-icons">description</md-icon>
+						MIS RECETAS
+					</md-button><br>
+					<md-button class="md-raised md-accent" style="font-size: 1.8rem;width:100%" ng-click="showMisChefsView($event)">
+						<md-icon md-font-library="material-icons">account_circle</md-icon>
+						MIS CHEFS
+					</md-button><br>
+					<md-button class="md-raised md-accent" style="font-size: 1.8rem;width:100%" ng-click="showRecetaNew($event)">
+						<md-icon md-font-library="material-icons">add</md-icon>
+						NUEVA RECETA
+					</md-button><br>
+					<md-button class="md-raised md-accent" style="font-size: 1.8rem;width:100%" ng-click="showMisFavoritos($event)">
+						<md-icon md-font-library="material-icons">favorite</md-icon>
+						MIS FAVORITAS
+					</md-button><br>
+					<md-button class="md-raised md-accent" style="font-size: 1.8rem;width:100%" ng-click="showMasFavoritos($event)">
+						<md-icon md-font-library="material-icons">favorite_outline</md-icon>
+						MÁS FAVORITAS
+					</md-button><br>
+					<md-button class="md-raised md-accent" style="font-size: 1.8rem;width:100%" ng-click="showMasPopulares($event)">
+						<md-icon md-font-library="material-icons">grade</md-icon>
+						MÁS POPULARES
+					</md-button><br>
+					<md-button ng-show="idrol>1" class="md-raised md-accent" style="font-size: 1.8rem;width:100%" ng-click="showGestorDen($event)">
+						<md-icon md-font-library="material-icons">report</md-icon>
+						GESTOR DENUNCIAS
+					</md-button><br>
+					    
+				</md-fab-actions>
+			</md-fab-speed-dial>
+			<span flex></span>
+		    <span>
+				<a style="cursor: pointer;" id="goToFirst" ng-click="goToFirst()"><h1><strong>Recetas Cuack</strong></h1></a>
+			</span>
+			<span flex></span>
+			<md-button ng-show="!(idusuario>0)" class="md-accent" ng-click="showRegistro($event)">
+				Registrarse
+			</md-button>
+			<md-button class="md-accent md-raised" ng-click="msjeLoginx()">
+				{{msjeLogin}}
+			</md-button> 
+		</div>
+    </md-toolbar>
+  
+  </header>
+<!-- 	<div>
+		{{5>3? 'hi':'ho'}}
+	</div> -->
+	<div ng-include="templateCurrent">
+	</div>
+	
+	<link  rel="stylesheet" href="./lib/css/bootstrap.min.css"></script>
+	<!-- lib -->
+	<script src="./lib/js/angular.min.js"></script>
+	<script src="./lib/js/angular-animate.min.js"></script>
+	<script src="./lib/js/angular-aria.min.js"></script>
+	<script src="./lib/js/angular-material.min.js"></script>
+	<script src="./lib/js/angular-route.min.js"></script>
+	<script src="./lib/js/angular-messages.min.js"></script>
+	<script src="./lib/js/angular-table.min.js"></script>
+	<script src="./lib/js/angular-tabs.min.js"></script>
+
+	<!-- app -->
+	<script src="./scripts/app.js"></script>
+	<script src="./scripts/controllers/main.js"></script>
+	<script src="./scripts/controllers/login.js"></script>
+	<script src="./scripts/controllers/registro.js"></script>
+	<script src="./scripts/controllers/recetaNew.js"></script>
+	<script src="./scripts/controllers/recetaEdit.js"></script>
+	<script src="./scripts/controllers/recetaView.js"></script>
+	<script src="./scripts/controllers/denunciasRecetasView.js"></script>
+	
+<!-- 	<script src="./lib/js/angular-datatables.min.js"></script> -->
+	<!-- 
+	<link  rel="stylesheet" href="./lib/angular-datatables-master/dist/plugins/bootstrap/datatables.bootstrap.min.css"></script> -->
+<!-- 	<script src="./lib/js/jquery.min.js"></script>
+	<script src="./lib/js/jquery.dataTables.min.js"></script> -->
+	<!--script src="./scripts/directives/usuario.js"></script--> 
+<!-- 	<script src="./lib/angular-datatables-master/dist\plugins\bootstrap\angular-datatables.bootstrap.min.js"></script>
+	<script src="./lib/angular-datatables-master\vendor\bootstrap\dist\js\bootstrap.min.js"></script> -->
+</body>
+
+</html>

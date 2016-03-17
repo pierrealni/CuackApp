@@ -1,0 +1,125 @@
+<md-dialog aria-label="Registrarse"  flex="50" >
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2 class="md-padding">Registro de Usuario</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon md-font-library="material-icons">clear</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <form name="registroForm" ng-submit="registrarse()">
+      <div layout="row" layout-align="center center" flex="80">
+        <div class="md-padding" flex>
+          <md-input-container flex>
+            <label>Nombres</label>
+            <input  name="nombres" maxlength="50" minlength="3" pattern="[a-zA-Z0-9]*" required ng-model="usr.nombre" flex>
+            <div ng-messages="registroForm.nombres.$error" role="alert" ng-if="registroForm.$dirty">
+              <div ng-message="required">
+                Los nombres son obligatorio.
+              </div>
+              <div ng-message="minlength">
+                Los nombres deben tener más de 3 caractéres de longitud.
+              </div>
+              <div ng-message="pattern">
+                Los nombres no pueden contener caractéres especiales.
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div class="md-padding" flex>
+          <md-input-container flex>
+            <label>Apellidos</label>
+            <input name="apellidos" maxlength="100" minlength="3" pattern="[a-zA-Z0-9]*" required ng-model="usr.apellidos" flex>
+            <div ng-messages="registroForm.apellidos.$error" role="alert" ng-if="registroForm.$dirty">
+              <div ng-message="required">
+                Los apellidos son obligatorios.
+              </div>
+              <div ng-message="minlength">
+                Los apellidos más de 3 caractéres de longitud.
+              </div>
+              <div ng-message="pattern">
+                Los apellidos no pueden contener caractéres especiales.
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+      </div>
+      <div layout="row" layout-align="center center" flex="80">
+        <div class="md-padding" flex="33">
+          <md-input-container flex>
+            <label>País</label>
+            <md-select name="pais" placeholder="Escoja un país" ng-model="usr.idpais" md-on-open="loadPaises()" required flex>
+              <md-option ng-repeat="p in paises" value="{{p.idpais}}">{{p.nombrepais}}</md-option>
+            </md-select>
+            <div class="errors" ng-messages="registroForm.pais.$error" ng-if="registroForm.$dirty">
+              <div ng-message="required">El país es obligatorio.</div>
+            </div>
+          </md-input-container>
+        </div>
+        <div class="md-padding" flex>
+          <md-input-container flex>
+            <label>Correo Electrónico</label>
+            <input name="correo" maxlength="100" minlength="5" type="email" required ng-model="usr.correo" flex>
+            <div ng-messages="registroForm.correo.$error" role="alert" ng-if="registroForm.$dirty">
+              <div ng-message="required">
+                El correo electrónico es obligatorio.
+              </div>
+              <div ng-message="minlength">
+                El correo electrónico debe tener más de 5 caractéres de longitud.
+              </div>
+              <div ng-message="email">
+                El correo electrónico no es válido.
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+      </div>
+      <div layout="row" layout-align="center center" flex="80">
+        <div class="md-padding" flex>
+          <md-input-container class="md-icon-float" flex>
+            <label>Usuario</label>
+            <md-icon md-font-library="material-icons">face</md-icon>
+            <input  name="usuario" maxlength="30" minlength="5" pattern="[a-zA-Z0-9]*" required ng-model="usr.nombreusuario" flex>
+            <div ng-messages="registroForm.usuario.$error" role="alert" ng-if="registroForm.$dirty">
+              <div ng-message="required">
+                El nombre de usuario es obligatorio.
+              </div>
+              <div ng-message="minlength">
+                El nombre de usuario debe tener más de 5 caractéres de longitud.
+              </div>
+              <div ng-message="pattern">
+                El nombre de usuario no puede contener caractéres especiales.
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div class="md-padding" flex>
+          <md-input-container class="md-icon-float" flex>
+            <label>Contraseña</label>
+            <md-icon md-font-library="material-icons">lock</md-icon>
+            <input name="clave"type="password" maxlength="30" minlength="5" required ng-model="usr.contrasenha" flex>
+            <div ng-messages="registroForm.clave.$error" role="alert" ng-if="registroForm.$dirty">
+              <div ng-message="required">
+                La contraseña es obligatoria.
+              </div>
+              <div ng-message="minlength">
+                El contraseña debe tener más de 5 caractéres de longitud.
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+      </div>
+
+      <div class="md-action md-padding" layout="row">
+        <span flex></span>
+        <md-button class="md-raised md-accent md-padding" >
+          <md-icon md-font-library="material-icons">input</md-icon>
+          <span class="md-padding">Registrarse</span>
+        </md-button>
+        <span flex></span>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>

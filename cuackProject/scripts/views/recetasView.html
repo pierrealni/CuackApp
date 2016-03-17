@@ -1,0 +1,33 @@
+<main class="md-padding" layout="column"  layout-align="start center">
+<!--     <section layout="row" layout-sm="column" layout-align="center center" class="md-padding" layout-wrap>
+      <md-button class="md-fab md-padding" ng-click="showRecetaNew($event)" ng-show="idusuario >0">
+        <md-icon md-font-library="material-icons">add</md-icon>
+      </md-button>
+    </section> -->
+	<h3 style="color:black">MIS RECETAS</h3>
+    <section layout-sm="column" layout-align="center center" class="md-padding" layout-wrap>
+		<md-card flex="50" ng-repeat="r in recetasView">
+			<md-card-content>
+				<h2 class="md-title">{{r.nombrereceta | uppercase }}</h2>
+				<p>
+				  <strong>Descripción</strong><br>{{r.descripcion}}
+				</p>
+				<p>
+				  <strong>Ingredientes</strong><br>{{r.ingredientes}}
+				</p>
+				<p>
+				  <strong>Procedimiento</strong><br>{{r.procedimiento}}
+				</p>
+				<p>
+					<strong>Etiquetas</strong><br><md-chips ng-init="r.etx=r.etiquetas.split(',')" ng-model="r.etx" readonly="true"></md-chips>
+				</p>			
+				<p>
+				  <strong>Código de Usuario</strong><br>{{r.nombreusuario}}
+				</p>
+			</md-card-content>
+			<div class="md-actions" layout="row" layout-align="end center">
+				<md-button ng-click="showRecetaEdit($event,r)" ng-show="r.idusuario == idusuario">Editar</md-button>
+			</div>
+		</md-card>
+    </section>
+</main>

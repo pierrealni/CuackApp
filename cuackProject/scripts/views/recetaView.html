@@ -1,0 +1,67 @@
+<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+<md-dialog aria-label="Acceder" flex="70" >
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2 class="md-padding">Información de Receta</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon md-font-library="material-icons">clear</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+		<section layout-sm="column" layout-align="center center" class="md-padding" layout-wrap>
+		  <md-card flex="50" > <!-- ng-repeat="r in recetas" -->
+		  <md-card-content>
+			<h2 class="md-title">{{receta.nombrereceta | uppercase}}</h2>
+			<p>
+			  <strong>Descripción</strong><br>{{receta.descripcion}}
+			</p>
+			<p>
+			  <strong>Ingredientes</strong><br>{{receta.ingredientes}}
+			</p>
+			<p>
+			  <strong>Procedimiento</strong><br>{{receta.procedimiento}}
+			</p>
+			<p>
+				<strong>Etiquetas</strong><br><md-chips ng-init="receta.etx=receta.etiquetas.split(',')" ng-model="receta.etx" readonly="true"></md-chips>
+			</p>		
+			<p>
+			  <strong>Usuario</strong><br>{{receta.nombreusuario}}
+			</p>
+			<p ng-show="idusuario>0">
+			  <strong>Favorito </strong><br>Le gusta a <span>{{receta.favoritos}}</span> persona(s)
+			</p>
+		  </md-card-content>
+		</md-card>
+		</section>
+		<!--<section layout="row" layout-align="center center" class="md-padding" layout-wrap >
+			<div flex="20"></div>
+			<div flex="50">
+			<md-button id="1s" ng-style="calx>0? {'background-color':'yellow'} : {'background-color':'gray'}"  class="md-fab md-mini" ng-click="calif(1)" ><md-icon md-font-library="material-icons" >grade</md-icon></md-button>
+			<md-button id="2s" ng-style="calx>1? {'background-color':'yellow'} : {'background-color':'gray'}" class="md-fab md-mini" ng-click="calif(2)" ><md-icon md-font-library="material-icons" >grade</md-icon></md-button>
+			<md-button id="3s" ng-style="calx>2? {'background-color':'yellow'} : {'background-color':'gray'}" class="md-fab md-mini" ng-click="calif(3)" ><md-icon md-font-library="material-icons" >grade</md-icon></md-button>
+			<md-button id="4s" ng-style="calx>3? {'background-color':'yellow'} : {'background-color':'gray'}" class="md-fab md-mini" ng-click="calif(4)" ><md-icon md-font-library="material-icons" >grade</md-icon></md-button>
+			<md-button id="5s" ng-style="calx>4? {'background-color':'yellow'} : {'background-color':'gray'}" class="md-fab md-mini" ng-click="calif(5)" ><md-icon md-font-library="material-icons" >grade</md-icon></md-button>
+			</div>
+			<div flex="30"></div>
+		</section>-->
+		
+		<section  ng-show="idusuario>0"layout="row"  layout-align="center center" class="md-padding" layout-wrap>
+		    <div  ng-show="idusuario!=receta.idusuario" flex="60" layout="row"  layout-align="center center">
+				<md-button  style="background-color:{{bckFoll}}" class="md-fab md-padding"  ng-click="showConfirm($event)" ><!-- style="background-color:red" ng-click="openToast()" -->
+					<md-icon md-font-library="material-icons" >people</md-icon>
+				</md-button>
+				<md-button  style="background-color:{{bckcDen}}" class="md-fab md-padding"  ng-click="sendDen($event)" ><!-- style="background-color:red" ng-click="openToast()" -->
+					<md-icon md-font-library="material-icons" >report</md-icon>
+				</md-button>
+			</div>
+			<div flex="40" layout="row"  layout-align="center center">
+				<md-button style="background-color:{{bckc}}" class="md-fab md-padding" ng-click="openToast()" >
+					<md-icon md-font-library="material-icons" >{{iconx}}</md-icon>
+				</md-button>
+			</div>			
+		</section>
+    </md-dialog-content>
+</md-dialog>
+

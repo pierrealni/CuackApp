@@ -1,0 +1,24 @@
+<md-dialog aria-label="Acceder" flex="40" >
+	<md-toolbar class="md-theme-light">
+    <div class="md-toolbar-tools">
+      <h2 class="md-padding">Denuncias a "{{receta.nombrereceta}}"</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon md-font-library="material-icons">clear</md-icon>
+      </md-button>
+    </div>
+	</md-toolbar>
+	  <md-content>
+		<md-list>
+		  <md-list-item class="md-3-line" ng-repeat="item in denuncias">
+			<img ng-src="./img/boy.jpg" style="width:40px" class="face" alt="{{item.nombre}}">
+			<div class="md-list-item-text">
+			  <h3>Nombre:	<strong>{{item.nombre}}</strong></h3>
+			  <h4>Cuenta:	<strong>{{item.nombreusuario}}</strong></h4>
+			  <p>Tipo:	<strong>{{item.descripcion}}</strong></p>
+			</div>
+			<md-divider md-inset ng-if="!$last"></md-divider>
+		  </md-list-item>
+		</md-list>
+	 </md-content>
+</md-dialog>

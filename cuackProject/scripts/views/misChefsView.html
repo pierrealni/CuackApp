@@ -1,0 +1,22 @@
+<div layout="row"  layout-align="space-around center">
+	<div ><img src="./img/chefcito.bmp"></div>	
+	<div layout="column">
+		<br><div flex><h3>MIS CHEFS<h3></div><br><br>
+			<md-list>
+		  <md-list-item class="md-3-line" ng-repeat="item in mischefs">
+			<img ng-src="./img/boy.jpg" style="width:40px" class="face" alt="{{item.nombreusuario}}">
+			<div class="md-list-item-text">
+			  <h3>Nombre:	<strong>{{item.nombre}} {{item.apellidos}}</strong></h3>
+			  <h4>Cuenta:	<strong>{{item.nombreusuario}}</strong></h4>
+			  <h4>País:	<strong>{{item.nombrepais}}</strong></h4>
+			  <p>Primer post:	<strong ng-init="item.usdesde=item.fecha_creacion.substring(0,4)">{{item.usdesde}}</strong></p>
+			</div>
+			<md-divider md-inset ng-if="!$last"></md-divider>
+		  </md-list-item>
+		</md-list>
+
+	</div> 
+
+	</div>
+</div>
+

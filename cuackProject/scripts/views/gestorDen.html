@@ -1,0 +1,35 @@
+<div layout="row"  layout-align="space-around center">
+<div ><img src="./img/chefcito.bmp"></div>	
+<div ng-cloak>
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Pendientes">
+        <md-content class="md-padding">
+			<h1 class="md-display-2">{{recetasDenTitle}}</h1>
+			<table class="table table-striped" at-table at-paginated at-list="listDen" at-config="config">
+			  <thead></thead>
+			  <tbody>
+				<tr>
+				  <td at-title="Receta" at-sortable at-attribute="nombrereceta" at-initial-sorting="asc" width="150" ><a style="cursor: pointer;" ng-click="showRecetaView($event,item)" >{{item.nombrereceta}}</a></td><!--  -->
+				  <td at-title="Usuario" at-sortable at-attribute="nombreusuario"  width="150">{{item.nombreusuario}}</td>
+				  <td at-title="Ultima Modificación" at-sortable at-attribute="fecha_modificacion">{{item.fecha_modificacion}}</td>
+				  <td at-title="# Denuncias {{recetasDenTitle | lowercase }}" at-sortable at-attribute="denunciasPen"><a style="cursor: pointer;" ng-click="showDenunciasRecetasView($event,item)" >{{item.denunciasPen}}</a></td> <!-- -->
+				</tr>
+			  </tbody>
+			</table>
+			<at-pagination at-list="listDen" at-config="config"></at-pagination>
+		</md-content>
+      </md-tab>
+      <md-tab label="Todos">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Revisadas</h1></md-content>
+      </md-tab>
+	  <!--
+      <md-tab label="three">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Todas</h1></md-content>
+      </md-tab> -->
+    </md-tabs>
+  </md-content>
+</div>
+</div>

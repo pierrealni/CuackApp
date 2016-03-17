@@ -1,0 +1,58 @@
+<md-dialog aria-label="Acceder" >
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2 class="md-padding">Bienvenido a Cuack</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-font-library="material-icons">clear</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+      <md-dialog-content>
+    <form name="loginForm" ng-submit="ingresar()">
+      <div class="md-padding">
+        <div class="md-padding" flex>
+          <md-input-container class="md-icon-float" flex>
+            <label>Usuario</label>
+            <md-icon md-font-library="material-icons">face</md-icon>
+            <input  name="usuario" maxlength="30" minlength="4" pattern="[a-zA-Z0-9]*" required ng-model="usr.usuario" flex>
+            <div ng-messages="loginForm.usuario.$error" role="alert" ng-if="registroForm.$dirty">
+              <div ng-message="required">
+                El nombre de usuario es obligatorio.
+              </div>
+              <div ng-message="minlength">
+                El nombre de usuario debe tener más de 8 caractéres de longitud.
+              </div>
+              <div ng-message="pattern">
+                El nombre de usuario no puede contener caractéres especiales.
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div class="md-padding" flex>
+          <md-input-container class="md-icon-float" flex>
+            <label>Contraseña</label>
+            <md-icon md-font-library="material-icons">lock</md-icon>
+            <input name="clave"type="password" maxlength="30" minlength="4" required ng-model="usr.clave" flex>
+            <div ng-messages="loginForm.clave.$error" role="alert" ng-if="registroForm.$dirty">
+              <div ng-message="required">
+                La contraseña es obligatoria.
+              </div>
+              <div ng-message="minlength">
+                El contraseña debe tener más de 8 caractéres de longitud.
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+      </div>
+      <div class="md-action md-padding" layout="row">
+        <span flex></span>
+        <md-button class="md-raised md-accent md-padding" > <!-- ng-click="ingresar()" -->
+          <md-icon md-font-library="material-icons">input</md-icon>
+          <span class="md-padding">Acceder</span>
+        </md-button>
+        <span flex></span>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>
